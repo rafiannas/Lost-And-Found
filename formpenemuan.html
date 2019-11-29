@@ -263,11 +263,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Form Penemuan Barang</h1>
-          </div>
-
           <!-- Content Row -->
           <div class="row">
 
@@ -282,7 +277,8 @@
                     <label>Lokasi Temuan</label><br>
 					<input type="lokasi" class="form-control" placeholder="Lokasi">
                     <label>Foto Barang</label><br>
-					<input type="fotobarang" class="form-control" placeholder="Foto Barang">
+                    <input type="file" class="form-control" name="fotobarang">
+                    <br>
                     <label>Jenis Barang</label><br>
 					<input type="jenisbarang" class="form-control" placeholder="Jenis Barang">
                     <label>Nama Barang</label><br>
@@ -290,9 +286,9 @@
                     <label>Deskripsi</label><br>
 					<input type="deskripsi" class="form-control" placeholder="Deskripsi">
 					<br>
-					<div class="text-right">
-            <button class="btn btn-warning" type="submit">Simpan</button>
-            </div>
+                    <div class="text-right">
+					  <button class="btn btn-warning" type="submit">Simpan</button>
+                    </div>
 				</div>
 			    </form>
             </div>
