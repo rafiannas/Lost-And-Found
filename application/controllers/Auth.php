@@ -38,6 +38,7 @@ class Auth extends CI_Controller
             if ($user['email'] == $email) {
                 // Cek password
                 if (password_verify($password, $user['password'])) {
+                    $this->session->set_userdata($user);
                     redirect('home');
                 } else {
                     // Password salah
