@@ -37,7 +37,9 @@ class Auth extends CI_Controller
             // User nya ada
             if ($user['email'] == $email) {
                 // Cek password
-                if (password_verify($password, $user['password'])) { } else {
+                if (password_verify($password, $user['password'])) {
+                    redirect('home');
+                } else {
                     // Password salah
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Wrong Password</div>');
                     redirect('auth');
