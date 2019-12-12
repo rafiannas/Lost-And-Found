@@ -5,11 +5,11 @@ class Pengambilan extends CI_Controller{
  
 	function __construct(){
         parent::__construct();
+        $this->load->model('pengambilan_model');
 	}
  
 	function index(){
         $this ->add_view();
-
 	}
  
 	function add_view(){
