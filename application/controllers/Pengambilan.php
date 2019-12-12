@@ -4,10 +4,11 @@
 class Pengambilan extends CI_Controller{
  
 	function __construct(){
-		
+        parent::__construct();
 	}
  
 	function index(){
+        $this ->add_view();
 
 	}
  
@@ -29,7 +30,8 @@ class Pengambilan extends CI_Controller{
             'foto'=> $foto_pengambilan,
             'tanggal' => $tgl_pengambilan
             );
-            
+        
+        $this->m_data->input_data($data,'pengambilan');
 		redirect('pengambilan/form_pengambilan');
 	}
     }
