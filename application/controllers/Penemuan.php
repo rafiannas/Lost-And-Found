@@ -32,7 +32,7 @@ class Penemuan extends CI_Controller
             'foto_barang'=> $foto_barang
         );
     
-        $this->Penemuan_model->input_data($data,'penemuan');
-    redirect('penemuan/form_penemuan.php');
+        $this->Penemuan_model->input_data($data,'temuan');
+    redirect('penemuan/formpenemuan.php');
 }
 } 
