@@ -31,7 +31,7 @@ class Pengambilan extends CI_Controller{
             'tanggal' => $tgl_pengambilan
             );
         
-        $this->m_data->input_data($data,'pengambilan');
+        $this->pengambilan_model->input_data($data,'pengambilan');
 		redirect('pengambilan/form_pengambilan');
 	}
 }
