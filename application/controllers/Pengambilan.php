@@ -13,7 +13,7 @@ class Pengambilan extends CI_Controller{
 	}
  
 	function add_view(){
-		$this->load->view('pengambilan/form_pengambilan');
+		$this->load->view('pengambilan/index');
 	}
     
     	function add_action(){
