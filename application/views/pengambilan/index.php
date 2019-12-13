@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Formulir Pengambilan</title>
-</head>
-<body>
-	<center>
-		<h1>Formulir Pengambilan</h1>
-	</center>
+<div class="row mt-4">
+        <div class="col-xl-12 col-lg-12">
+            <h1>List Temuan Barang</h1>
 	<form action="<?php echo base_url(). 'pengambilan/index'; ?>" method="post">
 		<table style="margin:20px auto;">
 			<tr>
@@ -35,5 +29,5 @@
 			</tr>
 		</table>
 	</form>	
-</body>
-</html>
+</div>
+</div>
