@@ -9,30 +9,26 @@ class Pengambilan extends CI_Controller{
 	}
  
 	function index(){
-        	$this ->add_view();
-	}
- 
-	function add_view(){
-		$this->load->view('templates/sb');
-		$this->load->view('pengambilan/index');
+			$this->load->view('templates/sb');
+			$this->load->view('pengambilan/index');
 	}
     
-    	function add_action(){
+    function add_action(){
         	$no_laporan = $this->input->post('laporan');
-		$nama_pengambil = $this->input->post('nama');
+			$nama_pengambil = $this->input->post('nama');
         	$no_hp = $this->input->post('hp');
         	$foto_pengambilan = $this->input->post('foto');
         	$tgl_pengambilan = $this->input->post('tanggal');
  
-		$data = array(
-			'laporan' => $no_laporan,
-			'nama' => $nama_pengambil,
-            		'hp' => $no_hp,
-            		'foto'=> $foto_pengambilan,
-            		'tanggal' => $tgl_pengambilan
-            	);
+			$data = array(
+				'laporan' => $no_laporan,
+				'nama' => $nama_pengambil,
+				'hp' => $no_hp,
+				'foto'=> $foto_pengambilan,
+				'tanggal' => $tgl_pengambilan
+				);
         
         	$this->pengambilan_model->input_data($data,'pengambilan');
-		redirect('pengambilan/index');
-	}
+			redirect('pengambilan/index');
+		}
 }
