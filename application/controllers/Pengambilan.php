@@ -32,6 +32,6 @@ class Pengambilan extends CI_Controller{
             	);
         
         	$this->pengambilan_model->input_data($data,'pengambilan');
-		redirect('pengambilan/form_pengambilan');
+		redirect('pengambilan/index');
 	}
 }
