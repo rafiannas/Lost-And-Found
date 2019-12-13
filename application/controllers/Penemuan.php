@@ -13,7 +13,7 @@ class Penemuan extends CI_Controller
 
     public function add_action(){
         $no_laporan = $this->input->post('no_laporan');
-        $id_barang = $this->input->post('id_barang')
+        $id_barang = $this->input->post('id_barang');
         $id_user = $this->input->post('id_user');
         $tgl_temuan = $this->input->post('tgl_temuan');
         $lokasi_penemuan = $this->input->post('lokasi_penemuan');
