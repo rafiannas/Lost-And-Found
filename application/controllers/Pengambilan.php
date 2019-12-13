@@ -13,6 +13,7 @@ class Pengambilan extends CI_Controller{
 	}
  
 	function add_view(){
+		$this->load->view('templates/sb');
 		$this->load->view('pengambilan/index');
 	}
     
