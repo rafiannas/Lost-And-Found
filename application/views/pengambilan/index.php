@@ -8,8 +8,7 @@
 		<h1>Formulir Pengambilan</h1>
 	</center>
 	<form action="<?php echo base_url(). 'pengambilan/index'; ?>" method="post">
-		<table style="margin:20px auto;">ggbbbggg]
-		b
+		<table style="margin:20px auto;">
 			<tr>
 				<td>No Laporan</td>
                 <td><input type="text" name="laporan"></td>
