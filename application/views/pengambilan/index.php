@@ -5,7 +5,7 @@
 		<table style="margin:20px auto;">
 			<tr>
 				<td>No Laporan</td>
-                <td><input type="text" name="laporan"></td>
+                <td><input type="number" name="laporan"></td>
 			</tr>
 			<tr>
 				<td>Nama Pengambil</td>
@@ -13,15 +13,15 @@
 			</tr>
 			<tr>
 				<td>No Handphone</td>
-				<td><input type="text" name="hp"></td>
+				<td><input type="number" name="hp"></td>
             </tr>
             <tr>
 				<td>Foto Pengambil</td>
-				<td><input type="text" name="foto"></td>
+				<td><input type="file" name="foto"></td>
             </tr>
             <tr>
 				<td>Tanggal Pengambilan</td>
-				<td><input type="text" name="tanggal"></td>
+				<td><input type="datetime-local" name="tanggal"></td>
 			</tr>
 			<tr>
 				<td></td>
