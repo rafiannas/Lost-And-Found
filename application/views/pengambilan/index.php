@@ -5,7 +5,7 @@
 		<table style="margin:20px auto;">
 			<tr>
 				<td>No Laporan</td>
-                <td><input type="number" name="laporan"></td>
+                <td><input type="text" name="laporan"></td>
 			</tr>
 			<tr>
 				<td>Nama Pengambil</td>
@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td>No Handphone</td>
-				<td><input type="number" name="hp"></td>
+				<td><input type="text" name="hp"></td>
             </tr>
             <tr>
 				<td>Foto Pengambil</td>
