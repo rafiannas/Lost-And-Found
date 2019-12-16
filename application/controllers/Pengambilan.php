@@ -10,20 +10,9 @@ class Pengambilan extends CI_Controller{
 	}
  
 	function index(){
-
-		$this->$this->form_validation->set_rules('no_laporan', 'No Laporan', 'required');
-		$this->$this->form_validation->set_rules('nama_pengambil', 'Nama Pengambil', 'required');
-		$this->$this->form_validation->set_rules('no_hp', 'No Handphone', 'required');
-		$this->$this->form_validation->set_rules('foto_pengambil', 'Foto Pengambil', 'required');
-		$this->$this->form_validation->set_rules('tgl_pengambilan', 'Tanggal Pengambilan', 'required');
-
-		if( $this->form_validation->run() == FALSE){
-			$this->load->view('templates/sb');
-			$this->load->view('pengambilan/index');
-		} else {
-			$this->Pengambilan_model->input_data();
-			redirect('home');
-		}
+		$this->load->view('templates/sb');
+		$this->load->view('pengambilan/index');
+		$this->Pengambilan_model->input_data();
 	}
     
     function add_action(){
