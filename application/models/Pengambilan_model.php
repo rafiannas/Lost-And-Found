@@ -4,6 +4,7 @@ class Pengambilan_model extends CI_Model{
     
     function input_data(){
 		$data = [
+			'id_ambil' => $this->input->post(''),
 			'no_laporan' => $this->input->post('no_laporan'),
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
