@@ -5,30 +5,28 @@ class Pengambilan extends CI_Controller{
  
 	function __construct(){
         	parent::__construct();
-        	$this->load->model('pengambilan_model');
+			$this->load->model('pengambilan_model');
+			$this->load->library('form_validation');
 	}
  
 	function index(){
+
+		$this->$this->form_validation->set_rules('no_laporan', 'No Laporan', 'required');
+		$this->$this->form_validation->set_rules('nama_pengambil', 'Nama Pengambil', 'required');
+		$this->$this->form_validation->set_rules('no_hp', 'No Handphone', 'required');
+		$this->$this->form_validation->set_rules('foto_pengambil', 'Foto Pengambil', 'required');
+		$this->$this->form_validation->set_rules('tgl_pengambilan', 'Tanggal Pengambilan', 'required');
+
+		if( $this->form_validation->run() == FALSE){
 			$this->load->view('templates/sb');
 			$this->load->view('pengambilan/index');
+		} else {
+			$this->Pengambilan_model->input_data();
+			redirect('home');
+		}
 	}
     
     function add_action(){
-        	$no_laporan = $this->input->post('laporan');
-			$nama_pengambil = $this->input->post('nama');
-        	$no_hp = $this->input->post('hp');
-        	$foto_pengambilan = $this->input->post('foto');
-        	$tgl_pengambilan = $this->input->post('tanggal');
- 
-			$data = array(
-				'laporan' => $no_laporan,
-				'nama' => $nama_pengambil,
-				'hp' => $no_hp,
-				'foto'=> $foto_pengambilan,
-				'tanggal' => $tgl_pengambilan
-				);
-        
-        	$this->pengambilan_model->input_data($data,'pengambilan');
-			redirect('pengambilan/index');
-		}
+			
+	}
 }
