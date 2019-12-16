@@ -12,7 +12,7 @@ class Pengambilan extends CI_Controller{
 	function index(){
 		$this->load->view('templates/sb');
 		$this->load->view('pengambilan/index');
-		$this->Pengambilan_model->input_data();
+		$this->pengambilan_model->input_data();
 	}
     
     function add_action(){
