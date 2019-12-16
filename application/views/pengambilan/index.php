@@ -2,28 +2,26 @@
     <div class="row mt-3">
 		<div class="col-md-6">
 			<form action="" method="post">
-				<table style="margin:20px auto;">
-					<tr>
-						<td>No Laporan</td>
-						<td><input type="text" name="no_laporan" id="no_laporan"></td>
-					</tr>
-					<tr>
-						<td>Nama Pengambil</td>
-						<td><input type="text" name="nama_pengambil" id="nama_pengambil"></td>
-					</tr>
-					<tr>
-						<td>No Handphone</td>
-						<td><input type="text" name="no_hp" id="no_hp"></td>
-					</tr>
-					<tr>
-						<td>Foto Pengambil</td>
-						<td><input type="text" name="foto_pengambil" id="foto_pengambil"></td>
-					</tr>
-					<tr>
-						<td>Tanggal Pengambilan</td>
-						<td><input type="datetime-local" name="tgl_pengambilan" id="tgl_pengambilan"></td>
-					</tr>
-				</table>
+				<div class="form-group">
+					<label for="no_laporan">No Laporan</label>
+					<input type="text" class="form-control" id="no_laporan">
+				</div>
+				<div class="form-group">
+					<label for="nama_pengambil">Nama Pengambil</label>
+					<input type="text" class="form-control" id="nama_pengambil">
+				</div>
+				<div class="form-group">
+					<label for="no_handphone">No Handphone</label>
+					<input type="text" class="form-control" id="no_hp">
+				</div>
+				<div class="form-group">
+					<label for="foto_pengambil">Foto Pengambil</td>
+					<input type="text" class="form-control" id="foto_pengambil">
+				</div>
+				<div class="form-group">
+					<label for="tgl_pengambilan">Tanggal Pengambilan</td>
+					<input type="datetime-local" class="form-control" id="tgl_pengambilan">
+				</div>
 				<button type ="submit" name="tambah" class="btn btn-primary float-right">
 					Submit
 				</button>
