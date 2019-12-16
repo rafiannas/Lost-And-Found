@@ -17,7 +17,7 @@
             </tr>
             <tr>
 				<td>Foto Pengambil</td>
-				<td><input type="file" name="foto"></td>
+				<td><input type="text" name="foto"></td>
             </tr>
             <tr>
 				<td>Tanggal Pengambilan</td>
