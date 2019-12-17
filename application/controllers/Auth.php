@@ -99,8 +99,8 @@ class Auth extends CI_Controller
 
             //token
             $token = random_bytes(32);
-            var_dump($token);
-            die();
+            // var_dump($token);
+            // die();
 
             $this->db->insert('user', $data);
 
@@ -138,5 +138,13 @@ class Auth extends CI_Controller
             echo $this->email->print_debugger();
             die;
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('id_level');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been Logout</div>');
+        redirect('auth');
     }
 }
