@@ -27,19 +27,21 @@ class Pengambilan extends CI_Controller{
                     'nama_pengambil' =>set_value('nama_pengambil'),
                     'no_hp' =>set_value('no_hp'),
                     'foto_pengambil'=>set_value('foto_pengambil'),
-                    'tgl_pengambilan'=>set_value('tgl_pengambilan'));
-
-		$this->form_validation->set_rules('no_laporan', 'no_laporan', 'required');
-        $this->form_validation->set_rules('nama_pengambil', 'nama_pengambil', 'required');
-        $this->form_validation->set_rules('no_hp', 'no_hp', 'required');
-        $this->form_validation->set_rules('foto_pengambil', 'foto_pengambil', 'required');
-        $this->form_validation->set_rules('tgl_pengambilan', 'tgl_pengambilan', 'required');
+					'tgl_pengambilan'=>set_value('tgl_pengambilan')
+				);
+						
+		$this->pengambilan_model->input_data();
+		//$this->form_validation->set_rules('no_laporan', 'no_laporan', 'required');
+        //$this->form_validation->set_rules('nama_pengambil', 'nama_pengambil', 'required');
+        //$this->form_validation->set_rules('no_hp', 'no_hp', 'required');
+        //$this->form_validation->set_rules('foto_pengambil', 'foto_pengambil', 'required');
+        //$this->form_validation->set_rules('tgl_pengambilan', 'tgl_pengambilan', 'required');
         
-        if ($this->form_validation->run() ==FALSE) {
-            $data['content_id'] = 'pengambilan/index.php';
-            } else {
-			$this->pengambilan_model->input_data();
-			redirect(home);
-        }
+        //if ($this->form_validation->run() ==FALSE) {
+          //  $data['content_id'] = 'pengambilan/index.php';
+          //  } else {
+			//$this->pengambilan_model->input_data();
+			//redirect(home);
+        //}
 	}
 }
