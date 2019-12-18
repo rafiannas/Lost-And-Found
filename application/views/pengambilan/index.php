@@ -22,7 +22,7 @@
 					<label for="tgl_pengambilan">Tanggal Pengambilan</td>
 					<input type="datetime-local" class="form-control" id="tgl_pengambilan">
 				</div>
-				<button type ="submit" name="tambah" class="btn btn-primary float-right">
+				<button type ="submit" name="submit" id="submit" class="btn btn-primary float-right">
 					Submit
 				</button>
 			</form>	

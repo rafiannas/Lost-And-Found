@@ -21,16 +21,20 @@ class Pengambilan extends CI_Controller{
 
 		#hubungan dengan data
 		$data['content_id'] = 'pengambilan/index.php';
+		if ($this->input->post('btnKirim')==TRUE) {
+			$attr = array(
+						'id_ambil' =>set_value(uniqid()),
+						'no_laporan' =>set_value($this->input->post('no_laporan', true)) ,
+						'nama_pengambil' =>set_value($this->input->post('nama_pengambil', true)),
+						'no_hp' =>set_value($this->input->post('no_hp', true)),
+						'foto_pengambil'=>set_value($this->input->post('foto_pengambil', true)),
+						'tgl_pengambilan'=>set_value($this->input->post('tgl_pengambilan', true))
+					);
+			$this->pengambilan_model->input_data($attr);
+		}
 
-        $data = array(
-                    'no_laporan' =>set_value('no_laporan') ,
-                    'nama_pengambil' =>set_value('nama_pengambil'),
-                    'no_hp' =>set_value('no_hp'),
-                    'foto_pengambil'=>set_value('foto_pengambil'),
-					'tgl_pengambilan'=>set_value('tgl_pengambilan')
-				);
-						
-		$this->pengambilan_model->input_data();
+
+		//$this->pengambilan_model->input_data($attr);
 		//$this->form_validation->set_rules('no_laporan', 'no_laporan', 'required');
         //$this->form_validation->set_rules('nama_pengambil', 'nama_pengambil', 'required');
         //$this->form_validation->set_rules('no_hp', 'no_hp', 'required');
