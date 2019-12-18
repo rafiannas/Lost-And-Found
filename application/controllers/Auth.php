@@ -13,11 +13,11 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email',[
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
             'valid_email' => 'Email tidak sah atau tidak valid!',
             'required' => 'Email wajib di isi!'
         ]);
-        $this->form_validation->set_rules('password', 'Kata Sandi', 'required|trim',[
+        $this->form_validation->set_rules('password', 'Kata Sandi', 'required|trim', [
             'required' => 'Kata Sandi wajib di isi!'
         ]);
 
@@ -73,10 +73,10 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        $this->form_validation->set_rules('nama', 'Name', 'required|trim',[
+        $this->form_validation->set_rules('nama', 'Name', 'required|trim', [
             'required' => 'Full Name atau Nama Lengkap wajib di isi!'
         ]);
-        $this->form_validation->set_rules('username', 'UserName', 'required|trim',[
+        $this->form_validation->set_rules('username', 'UserName', 'required|trim', [
             'required' => 'Username wajib di isi!'
         ]);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
@@ -89,7 +89,7 @@ class Auth extends CI_Controller
             'min_length' => 'Kata Sandi terlalu pendek! Minimal 6 karakter!',
             'required' => 'Kata Sandi wajib di isi!'
         ]);
-        $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password1]',[
+        $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password1]', [
             'required' => 'Kata Sandi wajib di isi!',
             'matches' => 'Kata Sandi tidak cocok!'
         ]);
@@ -116,8 +116,8 @@ class Auth extends CI_Controller
             //token
             $token = base64_encode(random_bytes(32));
             $user_token = [
-                'email' => $email ,
-                'token' => $token ,
+                'email' => $email,
+                'token' => $token,
                 'date_created' => time()
             ];
 
@@ -131,7 +131,7 @@ class Auth extends CI_Controller
         }
     }
 
-    private function _sendEmail($token,$type)
+    private function _sendEmail($token, $type)
     {
         $config = [
             'protocol' => 'smtp',
@@ -152,10 +152,10 @@ class Auth extends CI_Controller
 
         if ($type == 'verify') {
             $this->email->subject('Verifikasi Akun');
-            $this->email->message('Klik link ini untuk memverifikasi akun anda : <a href="'. base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan</a>');
+            $this->email->message('Klik link ini untuk memverifikasi akun anda : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan</a>');
         } elseif ($type == 'forgot') {
             $this->email->subject('Atur Ulang Kata Sandi');
-            $this->email->message('Klik link ini untuk mengatur ulang kata sandi anda : <a href="'. base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>');
+            $this->email->message('Klik link ini untuk mengatur ulang kata sandi anda : <a href="' . base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>');
         }
 
         if ($this->email->send()) {
@@ -171,23 +171,23 @@ class Auth extends CI_Controller
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
-        $user = $this->db->get_where('user',['email' => $email])->row_array();
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
         if ($user) {
-            $user_token = $this->db->get_where('user_token',['token' => $token])->row_array();
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
-                if (time() - $user_token['date_created'] < (60*60*24)) {
-                    $this->db->set('is_active',1);
-                    $this->db->where('email',$email);
+                if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+                    $this->db->set('is_active', 1);
+                    $this->db->where('email', $email);
                     $this->db->update('user');
 
-                    $this->db->delete('user_token',['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
 
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">'. $email .' telah diaktifkan! Silahkan login!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' telah diaktifkan! Silahkan login!</div>');
                     redirect('auth');
                 } else {
-                    $this->db->delete('user',['email' => $email]);
-                    $this->db->delete('user_token',['email' => $email]);
+                    $this->db->delete('user', ['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
 
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Token kedaluwarsa atau expired!</div>');
                     redirect('auth');
@@ -196,7 +196,6 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Token salah!</div>');
                 redirect('auth');
             }
-            
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Email salah!</div>');
             redirect('auth');
@@ -205,7 +204,7 @@ class Auth extends CI_Controller
 
     public function forgotPassword()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email',[
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
             'required' => 'Email wajib di isi!'
         ]);
 
@@ -217,19 +216,19 @@ class Auth extends CI_Controller
         } else {
             $email = htmlspecialchars($this->input->post('email'));
 
-            $user = $this->db->get_where('user', ['email' => $email,'is_active' => 1])->row_array();
+            $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
             if ($user) {
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
-                    'email' => $email ,
-                    'token' => $token ,
+                    'email' => $email,
+                    'token' => $token,
                     'date_created' => time()
                 ];
 
                 $this->db->insert('user_token', $user_token);
 
-                $this->_sendEmail($token,'forgot');
+                $this->_sendEmail($token, 'forgot');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Silakan Periksa Email Anda untuk Mengatur Ulang Kata Sandi Anda!</div>');
                 redirect('auth/forgotpassword');
@@ -245,20 +244,20 @@ class Auth extends CI_Controller
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
-        $user = $this->db->get_where('user',['email' => $email])->row_array();
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
         if ($user) {
-            $user_token = $this->db->get_where('user_token',['token' => $token])->row_array();
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
-                if (time() - $user_token['date_created'] < (60*60*24)) {
-                    $this->session->set_userdata('reset_email',$email);
+                if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+                    $this->session->set_userdata('reset_email', $email);
 
-                    $this->db->delete('user_token',['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
 
                     $this->changePassword();
                 } else {
                     // $this->db->delete('user',['email' => $email]);
-                    $this->db->delete('user_token',['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
 
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Atur Ulang Kata Sandi gagal! Token kedaluwarsa atau expired!</div>');
                     redirect('auth');
@@ -267,7 +266,6 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Atur Ulang Kata Sandi gagal! Token salah!</div>');
                 redirect('auth');
             }
-            
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Atur Ulang Kata Sandi gagal! Email salah!</div>');
             redirect('auth');
@@ -300,8 +298,8 @@ class Auth extends CI_Controller
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');
 
-            $this->db->set('password',$password);
-            $this->db->where('email',$email);
+            $this->db->set('password', $password);
+            $this->db->where('email', $email);
             $this->db->update('user');
 
             $this->session->unset_userdata('reset_email');
