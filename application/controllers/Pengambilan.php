@@ -21,14 +21,14 @@ class Pengambilan extends CI_Controller{
 
 		#hubungan dengan data
 		$data['content_id'] = 'pengambilan/index.php';
-		if ($this->input->post('btnKirim')==TRUE) {
+		if ($this->input->post('submit')==TRUE) {
 			$attr = array(
-						'id_ambil' =>set_value(uniqid()),
-						'no_laporan' =>set_value($this->input->post('no_laporan', true)) ,
-						'nama_pengambil' =>set_value($this->input->post('nama_pengambil', true)),
-						'no_hp' =>set_value($this->input->post('no_hp', true)),
-						'foto_pengambil'=>set_value($this->input->post('foto_pengambil', true)),
-						'tgl_pengambilan'=>set_value($this->input->post('tgl_pengambilan', true))
+					//	'id_ambil' =>set_value(uniqid()),
+						'no_laporan' => $this->input->post('no_laporan', true),
+						'nama_pengambil' => $this->input->post('nama_pengambil', true),
+						'no_hp' => $this->input->post('no_hp', true),
+						'foto_pengambil'=> $this->input->post('foto_pengambil', true),
+						'tgl_pengambilan'=> $this->input->post('tgl_pengambilan', true)
 					);
 			$this->pengambilan_model->input_data($attr);
 		}
