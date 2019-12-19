@@ -23,4 +23,10 @@ class Penemuan_model extends CI_Model
     {
         $this->db->insert($this->table, $data);
     }
+
+    public function hapusDataPenemuan($no_laporan)
+    {
+        $this->db->where('no_laporan', $no_laporan);
+        $this->db->delete('temuan');
+    }
 }

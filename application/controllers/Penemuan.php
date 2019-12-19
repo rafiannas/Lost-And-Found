@@ -69,4 +69,10 @@ class Penemuan extends CI_Controller
             redirect(site_url('penemuan'));
         }
     }
+
+    public function hapus($no_laporan)
+    {
+        $this->Penemuan_model->hapusDataPenemuan($no_laporan);
+        redirect('penemuan');
+    }
 }

@@ -10,6 +10,7 @@
                     <th scope="col">Id User</th>
                     <th scope="col">Tanggal temuan</th>
                     <th scope="col">Lokasi temuan</th>
+                    <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <?php foreach ($temuan as $temu) : ?>
@@ -20,6 +21,7 @@
                         <td><?= $temu['id_user'] ?></td>
                         <td><?= $temu['tgl_temuan'] ?></td>
                         <td><?= $temu['lokasi_penemuan'] ?></td>
+                        <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="badge badge-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
