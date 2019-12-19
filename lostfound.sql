@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2019 at 07:33 PM
+-- Generation Time: Dec 19, 2019 at 04:55 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -45,7 +45,7 @@ CREATE TABLE `pengambilan` (
   `nama_pengambil` varchar(100) NOT NULL,
   `no_hp` varchar(19) NOT NULL,
   `foto_pengambil` varchar(100) NOT NULL,
-  `Tgl_ambil` datetime NOT NULL
+  `tgl_pengambilan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -177,7 +177,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
