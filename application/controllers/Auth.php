@@ -13,6 +13,7 @@ class Auth extends CI_Controller
 
     public function index()
     {
+		echo "test";
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
             'valid_email' => 'Email tidak sah atau tidak valid!',
             'required' => 'Email wajib di isi!'
