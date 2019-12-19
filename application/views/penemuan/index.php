@@ -18,7 +18,7 @@
                         <td><?= $temu['no_laporan'] ?></td>
                         <td><?= $temu['id_barang'] ?></td>
                         <td><?= $temu['id_user'] ?></td>
-                        <td><?= $temu['tgl_temuan'] ?></td>
+                        <td><?= $temu['tgl_temuan'] = date('d F Y') ?></td>
                         <td><?= $temu['lokasi_penemuan'] ?></td>
                     </tr>
                 <?php endforeach; ?>

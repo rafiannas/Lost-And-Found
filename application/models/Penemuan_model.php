@@ -8,18 +8,18 @@ class Penemuan_model extends CI_Model
 
     public $table = 'temuan';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
     }
 
 
-    public function getAllPenemuan()
+    function getAllPenemuan()
     {
         return $this->db->get('temuan')->result_array();
     }
 
-    public function input_data($data)
+    function input_data($data)
     {
         $this->db->insert($this->table, $data);
     }

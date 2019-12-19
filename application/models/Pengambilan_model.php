@@ -1,7 +1,19 @@
-<?php 
+<?php
 
 class Pengambilan_model extends CI_Model
 {
+
+	function __construct()
+	{
+		parent::__construct();
+	}
+
+
+	function getAllPengambilan()
+	{
+		return $this->db->get('pengambilan')->result_array();
+	}
+
 	function input_data($data)
 	{
 		//$data = array(
@@ -11,7 +23,7 @@ class Pengambilan_model extends CI_Model
 		//	"foto_pengambil" => $this->input->post('foto_pengambil', true),
 		//	"tgl_pengambilan" => $this->input->post('tgl_pengambilan', true)
 		//);
-		
+
 		$this->db->insert('pengambilan', $data);
 	}
 }
